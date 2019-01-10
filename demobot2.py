@@ -6,20 +6,20 @@ app = Flask(__name__)
 
 
 # When people visit the home page '/' use the hello_world function
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def hello_you():
     return 'Hello, You!'
 
-@app.route('/ncss')
+@app.route('/ncss', methods=['GET', 'POST'])
 def hello_NCSS():
     return '<h1> NCSS </h1> NCSS'
 
-@app.route('/greet')
+@app.route('/greet', methods=['GET', 'POST'])
 def greet_person():
     name = request.values.get('text')
     return f'Hi {name}!'
 
-@app.route('/weather')
+@app.route('/weather', methods=['GET', 'POST'])
 def show_weather():
     weather = request.values.get('text')
     if int(weather) > 30:
